@@ -1,0 +1,2 @@
+emp001, Daoud, 20220802, male, 12000
+emp002, Manuella, 20220803, female, 1200
