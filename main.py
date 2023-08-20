@@ -80,3 +80,23 @@ def admin_menu():
         else:
             print("Invalid choice. Please select a valid option.")
 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#employee Menu
+def employee_menu(username):
+    while True:
+        gender_prefix = "Mr." if employee_dict[username]['gender'] == "male" else "Ms."
+        print(f"\nHi {gender_prefix} {employee_dict[username]['username']}!")
+        print("Employee Menu:")
+        print("1. Check my Salary")
+        print("2. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == "1":
+            print(f"Your salary is {employee_dict[username]['salary']}")
+        elif choice == "2":
+            save_login_timestamp(username)
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please select a valid option.")
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>            
