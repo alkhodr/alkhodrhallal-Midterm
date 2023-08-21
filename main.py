@@ -87,11 +87,44 @@ def display_statistics():
     female_count = len(employee_dict) - male_count
     print(f"Number of male employees: {male_count}")
     print(f"Number of female employees: {female_count}")
+# This function adds employees and add them to dictionary while adding time
+def add_employee():
+    employee_id = f"emp{str(len(employee_dict) + 1).zfill(3)}"
+    username = input("Enter employee's username: ")
+    gender = input("Enter employee's gender (male/female): ")
+    salary = int(input("Enter employee's salary: "))
+    join_date = datetime.today().strftime('%Y%m%d')
+
+    employee_dict[employee_id] = {
+        'username': username,
+        'join_date': join_date,
+        'gender': gender,
+        'salary': salary
+    }
+    print("Employee added successfully!")
 # Display all number 3
 def display_all_employees():
     sorted_employees = sorted(employee_dict.items(), key=lambda x: x[1]['join_date'], reverse=True)
     for emp_id, emp_data in sorted_employees:
         print(f"{emp_id}: {emp_data['username']} - {emp_data['gender']} - {emp_data['salary']}")
+# Change salary function
+def change_salary():
+    employee_id = input("Enter employee's ID: ")
+    if employee_id in employee_dict:
+        new_salary = int(input("Enter new salary: "))
+        employee_dict[employee_id]['salary'] = new_salary
+        print("Salary changed successfully!")
+    else:
+        print("Employee not found.")
+# Remove Employee from dictionary
+def remove_employee():
+    employee_id = input("Enter employee's ID: ")
+    if employee_id in employee_dict:
+        del employee_dict[employee_id]
+        print("Employee removed successfully!")
+    else:
+        print("Employee not found.")
+
 #employee Menu
 def employee_menu(username):
     while True:
