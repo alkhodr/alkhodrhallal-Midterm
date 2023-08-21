@@ -37,7 +37,7 @@ def login():
             break
         elif password == "":
             if username in employee_dict:  # Check if username exists in employee_dict
-                print(f"Welcome, Mr. {employee_dict[username]['username']}!")
+                #print(f"Welcome, Mr. {employee_dict[username]['username']}!")
                 employee_menu(username)
                 break
             else:
@@ -124,6 +124,21 @@ def remove_employee():
         print("Employee removed successfully!")
     else:
         print("Employee not found.")
+# Raise Employee Salary
+def raise_salary():
+    employee_id = input("Enter employee's ID: ")
+    if employee_id in employee_dict:
+        raise_percentage = float(input("Enter raise percentage (e.g., 1.05 for 5%): "))
+        employee_dict[employee_id]['salary'] *= raise_percentage
+        print("Salary raised successfully!")
+    else:
+        print("Employee not found.")
+# Save the Dictionay to the text file employeedatabase.txt 
+# after exiting the system
+def save_to_file():
+    with open('employeedatabase.txt', 'w') as file:
+        for emp_id, emp_data in employee_dict.items():
+            file.write(f"{emp_id}, {emp_data['username']}, {emp_data['join_date']}, {emp_data['gender']}, {emp_data['salary']}\n")
 
 #employee Menu
 def employee_menu(username):
