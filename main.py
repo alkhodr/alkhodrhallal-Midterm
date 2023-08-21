@@ -80,13 +80,17 @@ def admin_menu():
         else:
             print("Invalid choice. Please select a valid option.")
 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-# Admin menu Features
+# Admin menu Features number 1
 def display_statistics():
     male_count = sum(1 for emp in employee_dict.values() if emp['gender'] == 'male')
     female_count = len(employee_dict) - male_count
     print(f"Number of male employees: {male_count}")
     print(f"Number of female employees: {female_count}")
-
+# Display all number 3
+def display_all_employees():
+    sorted_employees = sorted(employee_dict.items(), key=lambda x: x[1]['join_date'], reverse=True)
+    for emp_id, emp_data in sorted_employees:
+        print(f"{emp_id}: {emp_data['username']} - {emp_data['gender']} - {emp_data['salary']}")
 #employee Menu
 def employee_menu(username):
     while True:
