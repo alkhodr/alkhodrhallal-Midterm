@@ -80,6 +80,13 @@ def admin_menu():
         else:
             print("Invalid choice. Please select a valid option.")
 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Admin menu Features
+def display_statistics():
+    male_count = sum(1 for emp in employee_dict.values() if emp['gender'] == 'male')
+    female_count = len(employee_dict) - male_count
+    print(f"Number of male employees: {male_count}")
+    print(f"Number of female employees: {female_count}")
+
 #employee Menu
 def employee_menu(username):
     while True:
@@ -99,4 +106,6 @@ def employee_menu(username):
             break
         else:
             print("Invalid choice. Please select a valid option.")
-#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>            
+#<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# Call the login function to start the program
+login()
