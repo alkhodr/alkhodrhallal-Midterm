@@ -26,6 +26,7 @@ def login():
     admin_username = "admin"
     admin_password = "admin123123"
     failed_attempts = 0  # Keep track of failed attempts
+    print("(if employee please your ID as username)\n")
 
     for _ in range(max_attempts):
         username = input("Username: ")
