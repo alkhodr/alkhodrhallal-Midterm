@@ -1,3 +1,4 @@
+from datetime import datetime
 # The Function below is to import the text file that contains employee data and
 # add them to a local dictionay called employee_dict.
 def read_employee_database(file_name):
@@ -111,5 +112,10 @@ def employee_menu(username):
         else:
             print("Invalid choice. Please select a valid option.")
 #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+# To save last time the employee logged in
+def save_login_timestamp(username):
+    timestamp = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+    with open('employee_logins.txt', 'a') as file:
+        file.write(f"{timestamp} - {username}\n")
 # Call the login function to start the program
 login()
